@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Pasien</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-100 min-h-screen font-['Inter'] text-gray-800 antialiased"
+  >
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside
+        class="fixed inset-y-0 left-0 z-50 w-64 bg-white/95 backdrop-blur-md shadow-xl transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex items-center p-6 border-b border-blue-100">
+          <h2
+            class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
+            Dr. Dashboard
+          </h2>
+        </div>
+        <nav class="p-5 space-y-3">
+          <a
+            href="dashboarddokter.html"
+            class="flex items-center gap-4 p-3 rounded-xl text-gray-700 gradient-hover"
+          >
+            <i class="fas fa-tachometer-alt w-6 text-indigo-500"></i>
+            <span class="font-medium">Dashboard</span>
+          </a>
+          <a
+            href="datapasien.html"
+            class="flex items-center gap-4 p-3 rounded-xl text-gray-700 gradient-hover"
+          >
+            <i class="fas fa-users w-6 text-blue-500"></i>
+            <span class="font-medium">Data Pasien</span>
+          </a>
+          <a
+            href="antrianpasien.html"
+            class="flex items-center gap-4 p-3 rounded-xl text-gray-700 gradient-hover"
+          >
+            <i class="fas fa-list-ol w-6 text-purple-500"></i>
+            <span class="font-medium">Antrian</span>
+          </a>
+          <a
+            href="kunjugan.html"
+            class="flex items-center gap-4 p-3 rounded-xl text-gray-700 gradient-hover"
+          >
+            <i class="fas fa-stethoscope w-6 text-green-500"></i>
+            <span class="font-medium">Kunjungan</span>
+          </a>
+          <a
+            href="stokobat.html"
+            class="flex items-center gap-4 p-3 rounded-xl text-gray-700 gradient-hover"
+          >
+            <i class="fas fa-pills w-6 text-red-500"></i>
+            <span class="font-medium">Stok Obat</span>
+          </a>
+          <a href="../login.html" class="flex items-center gap-4 p-3 rounded-xl text-gray-700 gradient-hover">
+            <i class="fas fa-sign-out-alt w-6 text-gray-500"></i>
+            <span class="font-medium">Keluar</span>
+          </a>
+          
+        </nav>
+      </aside>
+
+      <!-- Overlay Mobile -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-gray-900/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden z-40"
+      ></div>
+
+      <!-- Main Content -->
+      <main class="flex-1 md:ml-72 p-6 md:p-8">
+        <!-- Hamburger Button -->
+        <button
+          id="menu-toggle"
+          class="md:hidden p-3 rounded-full glassmorph shadow-lg hover:bg-indigo-50"
+        >
+          <i class="fas fa-bars text-xl text-indigo-600"></i>
+        </button>
+
+      <!-- Overlay untuk mobile -->
+      <div
+        id="overlay"
+        class="fixed inset-0 bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden z-40"
+      ></div>
+
+      <!-- Konten Utama -->
+      <main class="flex-1 md:ml-64 p-6 md:p-8">
+        <button
+          id="menu-toggle"
+          class="md:hidden p-2 rounded-lg bg-white shadow-md focus:outline-none hover:bg-blue-50 transition-colors"
+        >
+          <i class="fas fa-bars text-xl text-gray-700"></i>
+        </button>
+
+        <header class="mb-8">
+          <h1
+            class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+          >
+            Daftar Pasien
+          </h1>
+          <p class="mt-2 text-gray-600 text-sm md:text-base">
+            Lihat dan kelola data pasien Anda
+          </p>
+        </header>
+
+        <section class="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              class="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:bg-blue-100 transition-colors duration-200"
+            >
+              <p class="font-semibold text-gray-800">Budi Santoso</p>
+              <p class="text-sm text-gray-600">Umur: 35 | ID: PSN-001</p>
+              <p class="text-sm text-gray-500">
+                Terakhir Konsultasi: 25 Feb 2025
+              </p>
+              <button
+                class="mt-2 px-3 py-1 bg-indigo-600 text-white text-xs rounded-full hover:bg-indigo-700 transition-colors"
+              >
+                Lihat Detail
+              </button>
+            </div>
+            <div
+              class="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:bg-blue-100 transition-colors duration-200"
+            >
+              <p class="font-semibold text-gray-800">Ani Wijaya</p>
+              <p class="text-sm text-gray-600">Umur: 28 | ID: PSN-002</p>
+              <p class="text-sm text-gray-500">
+                Terakhir Konsultasi: 20 Feb 2025
+              </p>
+              <button
+                class="mt-2 px-3 py-1 bg-indigo-600 text-white text-xs rounded-full hover:bg-indigo-700 transition-colors"
+              >
+                Lihat Detail
+              </button>
+            </div>
+            <div
+              class="p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl hover:bg-blue-100 transition-colors duration-200"
+            >
+              <p class="font-semibold text-gray-800">Rina Putri</p>
+              <p class="text-sm text-gray-600">Umur: 42 | ID: PSN-003</p>
+              <p class="text-sm text-gray-500">
+                Terakhir Konsultasi: 15 Feb 2025
+              </p>
+              <button
+                class="mt-2 px-3 py-1 bg-indigo-600 text-white text-xs rounded-full hover:bg-indigo-700 transition-colors"
+              >
+                Lihat Detail
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const sidebar = document.querySelector("aside");
+      const overlay = document.getElementById("overlay");
+
+      menuToggle.addEventListener("click", () => {
+        sidebar.classList.toggle("-translate-x-full");
+        overlay.classList.toggle("opacity-0");
+        overlay.classList.toggle("pointer-events-none");
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.add("-translate-x-full");
+        overlay.classList.add("opacity-0");
+        overlay.classList.add("pointer-events-none");
+      });
+    </script>
+  </body>
+</html>
