@@ -1,13 +1,517 @@
-/* Background Animation */ body { background: linear-gradient(-45deg, #1e88e5,
-#6ab7ff, #ffffff, #e3f2fd); background-size: 400% 400%; animation: gradientBG
-15s ease infinite; } @keyframes gradientBG { 0% { background-position: 0% 50%; }
-50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-/* Overlay untuk meningkatkan keterbacaan */ body::before { content: '';
-position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,
-255, 255, 0.8); z-index: -1; } /* Efek tambahan untuk card utama */ .bg-white {
-background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
-border-radius: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); } /* Responsif
-untuk mobile */ @media (max-width: 640px) { body { background:
-linear-gradient(-45deg, #1e88e5, #6ab7ff, #ffffff, #e3f2fd); background-size:
-200% 200%; animation: gradientBG 10s ease infinite; } .bg-white {
-backdrop-filter: blur(5px); } }
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puskesmas Digital - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <style>
+      .bg-primary-blue {
+        background-color: #1e88e5;
+      }
+      .text-primary-blue {
+        color: #1e88e5;
+      }
+      .border-primary-blue {
+        border-color: #1e88e5;
+      }
+      .tab-active {
+        border-bottom: 3px solid #1e88e5;
+        color: #1e88e5;
+      }
+      /* Tambahan animasi */
+      .fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+      .btn-hover {
+        transition: all 0.3s ease;
+      }
+      .btn-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(30, 136, 229, 0.3);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideUp {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+      /* Responsif untuk mobile */
+      @media (max-width: 640px) {
+        body {
+          max-width: 390px;
+          margin: 0 auto;
+        }
+        .max-w-4xl {
+          max-width: 100%;
+          width: 390px;
+        }
+        .md:w-1/2 {
+          width: 100%;
+        }
+        .hidden.md\:block {
+          display: none;
+        }
+        .grid-cols-2 {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+        .px-4 {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+        .py-2 {
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
+        .text-2xl {
+          font-size: 1.5rem;
+        }
+        .text-lg {
+          font-size: 1rem;
+        }
+        .text-sm {
+          font-size: 0.875rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 font-sans">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+      <!-- Main Card -->
+      <div
+        class="bg-white rounded-xl shadow-lg overflow-hidden w-full max-w-4xl flex flex-col md:flex-row animate-[slideUp_0.7s_ease-out]"
+        style="animation-delay: 0.3s"
+      >
+        <!-- Left Side - Image for desktop -->
+        <div class="hidden md:block md:w-1/2 bg-primary-blue relative">
+          <div class="absolute inset-0 flex items-center justify-center p-10">
+            <div class="text-white space-y-6">
+              <h2 class="text-3xl font-bold animate-[fadeIn_0.5s_ease-in]">
+                Selamat Datang
+              </h2>
+              <p class="text-lg opacity-90">
+                Portal layanan kesehatan digital untuk memudahkan akses
+                perawatan kesehatan Anda.
+              </p>
+              <div class="flex flex-col space-y-4 mt-10">
+                <div
+                  class="flex items-center animate-[slideUp_0.5s_ease-out]"
+                  style="animation-delay: 0.4s"
+                >
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center transform hover:rotate-12 transition-transform"
+                  >
+                    <i class="fas fa-id-card text-white"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="font-semibold">Pendaftaran Online</h3>
+                    <p class="text-sm opacity-80">
+                      Daftar berobat dari rumah tanpa antre
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center animate-[slideUp_0.5s_ease-out]"
+                  style="animation-delay: 0.5s"
+                >
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center transform hover:rotate-12 transition-transform"
+                  >
+                    <i class="fas fa-history text-white"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="font-semibold">Riwayat Pengobatan</h3>
+                    <p class="text-sm opacity-80">
+                      Akses riwayat pemeriksaan Anda kapan saja
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="flex items-center animate-[slideUp_0.5s_ease-out]"
+                  style="animation-delay: 0.6s"
+                >
+                  <div
+                    class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center transform hover:rotate-12 transition-transform"
+                  >
+                    <i class="fas fa-user-md text-white"></i>
+                  </div>
+                  <div class="ml-4">
+                    <h3 class="font-semibold">Layanan Terpadu</h3>
+                    <p class="text-sm opacity-80">
+                      Terkoneksi dengan dokter dan bidan
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side - Forms -->
+        <div class="w-full md:w-1/2 p-6 md:p-10">
+          <!-- Tabs -->
+          <div class="flex border-b border-gray-200 mb-6">
+            <button
+              id="login-tab"
+              class="px-4 py-2 w-1/3 text-center tab-active font-medium btn-hover"
+              onclick="switchTab('login')"
+            >
+              Masuk
+            </button>
+            <button
+              id="register-tab"
+              class="px-4 py-2 w-1/3 text-center text-gray-500 font-medium btn-hover"
+              onclick="switchTab('register')"
+            >
+              Daftar
+            </button>
+            <button
+              id="forgot-tab"
+              class="px-4 py-2 w-1/3 text-center text-gray-500 font-medium btn-hover"
+              onclick="switchTab('forgot')"
+            >
+              Lupa Password
+            </button>
+          </div>
+
+          <!-- Login Form -->
+          <div id="login-form" class="space-y-4 fade-in">
+            <h2 class="text-2xl font-bold text-gray-800">Masuk ke Akun Anda</h2>
+            <p class="text-gray-600 mb-6">
+              Masukkan nomor BPJS atau email dan password Anda
+            </p>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-gray-700 mb-2" for="login-id"
+                  >Nomor BPJS / Email</label
+                >
+                <input
+                  type="text"
+                  id="login-id"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Masukkan nomor BPJS atau email"
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2" for="login-password"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="login-password"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Masukkan password"
+                />
+              </div>
+
+              <div class="flex justify-between items-center">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="remember"
+                    class="rounded text-primary-blue"
+                  />
+                  <label for="remember" class="text-gray-600 ml-2"
+                    >Ingat saya</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <a
+              href="pasien/dashboard.html"
+              class="w-full bg-primary-blue text-white py-3 rounded-lg font-medium btn-hover text-center block"
+            >
+              Masuk
+            </a>
+
+            <div class="text-center mt-6">
+              <p class="text-gray-600 font-medium mb-3">Masuk sebagai:</p>
+              <div class="grid grid-cols-2 gap-4 mt-3">
+                <a
+                  href="operator/dashboard.html"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 btn-hover flex items-center justify-center"
+                >
+                  <i class="fas fa-user mr-2 text-primary-blue"></i> Operator
+                </a>
+                <a
+                  href="dokter/dashboarddokter.html"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 btn-hover flex items-center justify-center"
+                >
+                  <i class="fas fa-user-md mr-2 text-primary-blue"></i> Dokter
+                </a>
+                <a
+                  href="bidan/dashboard.html"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 btn-hover flex items-center justify-center"
+                >
+                  <i class="fas fa-user-nurse mr-2 text-primary-blue"></i> Bidan
+                </a>
+                <a
+                  href="admin/dashboard.html"
+                  class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 btn-hover flex items-center justify-center"
+                >
+                  <i class="fas fa-user-cog mr-2 text-primary-blue"></i> Admin
+                </a>
+              </div>
+            </div>
+
+            <!-- Tombol Kembali -->
+            <div class="text-center mt-6">
+              <a
+                href="index.html"
+                class="text-primary-blue hover:underline font-medium btn-hover"
+              >
+                <i class="fas fa-arrow-left mr-2"></i>Kembali ke Halaman Utama
+              </a>
+            </div>
+          </div>
+
+          <!-- Register Form -->
+          <div id="register-form" class="space-y-4 hidden">
+            <h2 class="text-2xl font-bold text-gray-800">Buat Akun Baru</h2>
+            <p class="text-gray-600 mb-6">
+              Daftar untuk mendapatkan akses ke layanan Puskesmas Digital
+            </p>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-gray-700 mb-2" for="reg-name"
+                  >Nama Lengkap</label
+                >
+                <input
+                  type="text"
+                  id="reg-name"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Masukkan nama lengkap"
+                />
+              </div>
+
+              <div class="flex flex-col md:flex-row gap-4">
+                <div class="w-full">
+                  <label class="block text-gray-700 mb-2" for="reg-nik"
+                    >NIK</label
+                  >
+                  <input
+                    type="text"
+                    id="reg-nik"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                    placeholder="Nomor KTP/NIK"
+                  />
+                </div>
+                <div class="w-full">
+                  <label class="block text-gray-700 mb-2" for="reg-bpjs"
+                    >Nomor BPJS</label
+                  >
+                  <input
+                    type="text"
+                    id="reg-bpjs"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                    placeholder="Nomor kartu BPJS"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2" for="reg-email"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  id="reg-email"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Alamat email aktif"
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2" for="reg-phone"
+                  >Nomor Telepon</label
+                >
+                <input
+                  type="tel"
+                  id="reg-phone"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Nomor telepon aktif"
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2" for="reg-birth"
+                  >Tanggal Lahir</label
+                >
+                <input
+                  type="date"
+                  id="reg-birth"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                />
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2" for="reg-address"
+                  >Alamat Lengkap</label
+                >
+                <textarea
+                  id="reg-address"
+                  rows="2"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Alamat lengkap tempat tinggal"
+                ></textarea>
+              </div>
+
+              <div>
+                <label class="block text-gray-700 mb-2" for="reg-password"
+                  >Password</label
+                >
+                <input
+                  type="password"
+                  id="reg-password"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Buat password baru"
+                />
+              </div>
+
+              <div>
+                <label
+                  class="block text-gray-700 mb-2"
+                  for="reg-confirm-password"
+                  >Konfirmasi Password</label
+                >
+                <input
+                  type="password"
+                  id="reg-confirm-password"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Konfirmasi password"
+                />
+              </div>
+
+              <div class="flex items-start">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  class="mt-1 rounded text-primary-blue"
+                />
+                <label for="terms" class="text-gray-600 ml-2"
+                  >Saya menyetujui
+                  <a href="#" class="text-primary-blue hover:underline"
+                    >syarat dan ketentuan</a
+                  >
+                  yang berlaku</label
+                >
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-primary-blue text-white py-3 rounded-lg font-medium btn-hover"
+            >
+              Daftar Sekarang
+            </button>
+
+            <!-- Tombol Kembali -->
+            <div class="text-center mt-6">
+              <a
+                href="index.html"
+                class="text-primary-blue hover:underline font-medium btn-hover"
+              >
+                <i class="fas fa-arrow-left mr-2"></i>Kembali ke Halaman Utama
+              </a>
+            </div>
+          </div>
+
+          <!-- Forgot Password Form -->
+          <div id="forgot-form" class="space-y-4 hidden">
+            <h2 class="text-2xl font-bold text-gray-800">Lupa Password?</h2>
+            <p class="text-gray-600 mb-6">
+              Masukkan email atau nomor BPJS untuk mendapatkan link reset
+              password
+            </p>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-gray-700 mb-2" for="forgot-id"
+                  >Email / Nomor BPJS</label
+                >
+                <input
+                  type="text"
+                  id="forgot-id"
+                  class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent transition-all"
+                  placeholder="Masukkan email atau nomor BPJS"
+                />
+              </div>
+            </div>
+
+            <button
+              class="w-full bg-primary-blue text-white py-3 rounded-lg font-medium btn-hover"
+            >
+              Kirim Link Reset
+            </button>
+
+            <div class="text-center mt-6">
+              <p class="text-gray-600">
+                Sudah ingat password Anda?
+                <a
+                  href="#"
+                  onclick="switchTab('login')"
+                  class="text-primary-blue hover:underline"
+                  >Kembali ke halaman login</a
+                >
+              </p>
+
+              <!-- Tombol Kembali -->
+              <div class="mt-4">
+                <a
+                  href="index.html"
+                  class="text-primary-blue hover:underline font-medium btn-hover"
+                >
+                  <i class="fas fa-arrow-left mr-2"></i>Kembali ke Halaman Utama
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+    </div>
+
+    <script>
+      function switchTab(tab) {
+        // Hide all forms
+        document.getElementById("login-form").classList.add("hidden");
+        document.getElementById("register-form").classList.add("hidden");
+        document.getElementById("forgot-form").classList.add("hidden");
+
+        // Reset all tabs
+        document.getElementById("login-tab").classList.remove("tab-active");
+        document.getElementById("register-tab").classList.remove("tab-active");
+        document.getElementById("forgot-tab").classList.remove("tab-active");
+
+        document.getElementById("login-tab").classList.add("text-gray-500");
+        document.getElementById("register-tab").classList.add("text-gray-500");
+        document.getElementById("forgot-tab").classList.add("text-gray-500");
+
+        // Show active form and tab
+        const activeForm = document.getElementById(tab + "-form");
+        activeForm.classList.remove("hidden");
+        activeForm.classList.add("fade-in");
+        document.getElementById(tab + "-tab").classList.add("tab-active");
+        document.getElementById(tab + "-tab").classList.remove("text-gray-500");
+      }
+    </script>
+  </body>
+</html>
